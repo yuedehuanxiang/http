@@ -1,0 +1,26 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>csp内容安全策略</title>
+</head>
+
+<body>
+    <form action="http://www.baidu.com">
+        <input type="submit">
+    </form>
+</body>
+
+<script>
+    console.log(1); // 不允许页面行间插入js脚本 防止 xss 攻击
+</script>
+
+<!-- 这个同域名下的脚本是可以正常执行的 -->
+<script src="/test.js"></script>
+
+<!-- 这里引入的外部资源会被csp 给 block 掉 -->
+<script src="https://cdn.bootcss.com/jquery/3.3.1/core.js"></script>
+
+</html>
