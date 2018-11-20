@@ -6,7 +6,7 @@ http.createServer(function (request, response) {
     const host = request.headers.host;
     console.log(host);
     if (request.url === '/') {
-        const html = fs.readFileSync('test.html', 'utf8');
+        const html = fs.readFileSync('test.html', 'UTF-8');
         if (host === 'a.com:8888') {
             response.writeHead(200, {
                 'Content-Type': 'text/html',
